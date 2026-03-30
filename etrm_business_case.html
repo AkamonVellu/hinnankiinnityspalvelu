@@ -7,333 +7,77 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 * { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:'Jost',sans-serif; background:#f2f2f5; color:#111; padding:32px 16px 64px; }
+.wrapper { max-width:860px; margin:0 auto; display:flex; flex-direction:column; gap:24px; }
 
-body {
-  font-family: 'Jost', sans-serif;
-  background: #f2f2f5;
-  color: #111;
-  padding: 32px 16px 64px;
-}
+.top-header { background:#5E649C; border-radius:12px; padding:32px 40px 28px; display:flex; justify-content:space-between; align-items:flex-end; }
+.top-header h1 { font-family:'Playfair Display',serif; font-size:26px; color:#fff; font-weight:900; line-height:1.2; margin-bottom:6px; }
+.top-header .sub { font-size:12px; color:#F4D0D9; text-transform:uppercase; letter-spacing:.05em; font-weight:300; }
+.logo { font-family:'Playfair Display',serif; font-size:22px; color:#fff; font-weight:700; }
+.logo span { color:#F4D0D9; }
 
-.wrapper {
-  max-width: 860px;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-}
+.info-banner { background:#fff; border-left:4px solid #5E649C; border-radius:0 8px 8px 0; padding:14px 20px; font-size:12.5px; color:#444; line-height:1.6; }
+.info-banner strong { color:#5E649C; }
 
-/* HEADER */
-.top-header {
-  background: #5E649C;
-  border-radius: 12px;
-  padding: 32px 40px 28px;
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-}
-.top-header h1 {
-  font-family: 'Playfair Display', serif;
-  font-size: 26px;
-  color: #fff;
-  font-weight: 900;
-  line-height: 1.2;
-  margin-bottom: 6px;
-}
-.top-header .sub {
-  font-size: 12px;
-  color: #F4D0D9;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  font-weight: 300;
-}
-.logo {
-  font-family: 'Playfair Display', serif;
-  font-size: 22px;
-  color: #fff;
-  font-weight: 700;
-}
-.logo span { color: #F4D0D9; }
+.section { background:#fff; border-radius:12px; padding:28px 32px; box-shadow:0 2px 12px rgba(0,0,0,.06); }
+.section-title { font-family:'Playfair Display',serif; font-size:16px; font-weight:700; color:#000; margin-bottom:20px; padding-bottom:10px; border-bottom:2px solid #5E649C; display:flex; align-items:center; gap:10px; }
+.section-title .icon { width:28px; height:28px; background:#5E649C; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:13px; flex-shrink:0; }
 
-/* INFO BANNER */
-.info-banner {
-  background: #fff;
-  border-left: 4px solid #5E649C;
-  border-radius: 0 8px 8px 0;
-  padding: 14px 20px;
-  font-size: 12.5px;
-  color: #444;
-  line-height: 1.6;
-}
-.info-banner strong { color: #5E649C; }
+.input-grid { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+.input-group { display:flex; flex-direction:column; gap:5px; }
+.input-group label { font-size:12px; font-weight:500; color:#555; }
+.input-group .hint { font-size:11px; color:#999; font-weight:300; margin-top:-2px; }
+.input-row { display:flex; align-items:center; gap:8px; }
+.input-row input[type="number"] { width:100%; padding:9px 12px; border:1.5px solid #ddd; border-radius:6px; font-family:'Jost',sans-serif; font-size:14px; font-weight:500; color:#111; background:#fafafa; transition:border-color .2s; -moz-appearance:textfield; }
+.input-row input:focus { outline:none; border-color:#5E649C; background:#fff; }
+.input-row input::-webkit-outer-spin-button, .input-row input::-webkit-inner-spin-button { -webkit-appearance:none; }
+.unit { font-size:12px; color:#888; white-space:nowrap; min-width:36px; }
 
-/* SECTION */
-.section {
-  background: #fff;
-  border-radius: 12px;
-  padding: 28px 32px;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
-}
-.section-title {
-  font-family: 'Playfair Display', serif;
-  font-size: 16px;
-  font-weight: 700;
-  color: #000;
-  margin-bottom: 20px;
-  padding-bottom: 10px;
-  border-bottom: 2px solid #5E649C;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-.section-title .icon {
-  width: 28px; height: 28px;
-  background: #5E649C;
-  border-radius: 50%;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 13px;
-  flex-shrink: 0;
-}
+.slider-group { display:flex; flex-direction:column; gap:5px; }
+.slider-group label { font-size:12px; font-weight:500; color:#555; display:flex; justify-content:space-between; }
+.slider-group label span { font-weight:600; color:#5E649C; }
+input[type="range"] { width:100%; accent-color:#5E649C; height:4px; cursor:pointer; }
 
-/* INPUT GRID */
-.input-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 16px;
-}
-.input-group {
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-}
-.input-group label {
-  font-size: 12px;
-  font-weight: 500;
-  color: #555;
-}
-.input-group .hint {
-  font-size: 11px;
-  color: #999;
-  font-weight: 300;
-  margin-top: -2px;
-}
-.input-row {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-.input-row input[type="number"] {
-  width: 100%;
-  padding: 9px 12px;
-  border: 1.5px solid #ddd;
-  border-radius: 6px;
-  font-family: 'Jost', sans-serif;
-  font-size: 14px;
-  font-weight: 500;
-  color: #111;
-  background: #fafafa;
-  transition: border-color 0.2s;
-  -moz-appearance: textfield;
-}
-.input-row input:focus {
-  outline: none;
-  border-color: #5E649C;
-  background: #fff;
-}
-.input-row input::-webkit-outer-spin-button,
-.input-row input::-webkit-inner-spin-button { -webkit-appearance: none; }
-.unit {
-  font-size: 12px;
-  color: #888;
-  white-space: nowrap;
-  min-width: 36px;
-}
+.results-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:14px; margin-bottom:24px; }
+.result-card { background:#000; border-radius:10px; padding:18px 16px; text-align:center; }
+.result-card .r-label { font-size:11px; color:#aaa; font-weight:300; margin-bottom:8px; line-height:1.4; min-height:30px; display:flex; align-items:center; justify-content:center; }
+.result-card .r-value { font-family:'Playfair Display',serif; font-size:22px; font-weight:700; color:#F4D0D9; line-height:1; margin-bottom:4px; }
+.result-card .r-sub { font-size:10.5px; color:#666; font-weight:300; }
 
-/* SLIDER */
-.slider-group {
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-}
-.slider-group label {
-  font-size: 12px;
-  font-weight: 500;
-  color: #555;
-  display: flex;
-  justify-content: space-between;
-}
-.slider-group label span {
-  font-weight: 600;
-  color: #5E649C;
-}
-input[type="range"] {
-  width: 100%;
-  accent-color: #5E649C;
-  height: 4px;
-  cursor: pointer;
-}
+.roi-bar { background:linear-gradient(135deg,#5E649C 0%,#8188B9 100%); border-radius:10px; padding:20px 28px; display:flex; justify-content:space-between; align-items:center; }
+.roi-bar .roi-left h3 { font-family:'Playfair Display',serif; font-size:15px; color:#fff; font-weight:700; margin-bottom:4px; }
+.roi-bar .roi-left p { font-size:11.5px; color:#F4D0D9; font-weight:300; }
+.roi-bar .roi-number { font-family:'Playfair Display',serif; font-size:42px; font-weight:900; color:#fff; line-height:1; }
+.roi-bar .roi-number span { font-size:20px; color:#F4D0D9; }
 
-/* RESULTS */
-.results-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 14px;
-  margin-bottom: 24px;
-}
-.result-card {
-  background: #000;
-  border-radius: 10px;
-  padding: 18px 16px;
-  text-align: center;
-}
-.result-card .r-label {
-  font-size: 11px;
-  color: #aaa;
-  font-weight: 300;
-  margin-bottom: 8px;
-  line-height: 1.4;
-  min-height: 30px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.result-card .r-value {
-  font-family: 'Playfair Display', serif;
-  font-size: 22px;
-  font-weight: 700;
-  color: #F4D0D9;
-  line-height: 1;
-  margin-bottom: 4px;
-}
-.result-card .r-sub {
-  font-size: 10.5px;
-  color: #666;
-  font-weight: 300;
-}
+.breakdown { width:100%; border-collapse:collapse; margin-top:20px; }
+.breakdown th { font-size:11px; font-weight:600; color:#888; text-transform:uppercase; letter-spacing:.04em; padding:8px 12px; text-align:left; border-bottom:1.5px solid #eee; }
+.breakdown td { font-size:12.5px; padding:11px 12px; border-bottom:1px solid #f0f0f0; color:#333; vertical-align:top; }
+.breakdown td:last-child { text-align:right; font-weight:600; color:#000; }
+.breakdown tr.total td { border-top:2px solid #000; border-bottom:none; font-weight:700; color:#000; font-size:13.5px; padding-top:14px; }
+.breakdown tr.cost td { color:#c0392b; }
+.breakdown tr.cost td:last-child { color:#c0392b; }
+.breakdown tr.cumulative td { background:#f9f9f9; padding-top:14px; padding-bottom:14px; }
+.breakdown tr.cumulative td:last-child { font-size:15px; color:#5E649C; font-weight:800; }
+.cat-label { display:inline-block; font-size:10px; padding:2px 7px; border-radius:20px; margin-left:6px; font-weight:500; vertical-align:middle; }
+.cat-churn { background:#e8f4fd; color:#2980b9; }
+.cat-spot { background:#eafaf1; color:#27ae60; }
+.cat-service { background:#fef9e7; color:#d4ac0d; }
+.cat-upsell { background:#fdf2f8; color:#8e44ad; }
+.cat-cost { background:#fdecea; color:#c0392b; }
 
-/* ROI HIGHLIGHT */
-.roi-bar {
-  background: linear-gradient(135deg, #5E649C 0%, #8188B9 100%);
-  border-radius: 10px;
-  padding: 20px 28px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.roi-bar .roi-left h3 {
-  font-family: 'Playfair Display', serif;
-  font-size: 15px;
-  color: #fff;
-  font-weight: 700;
-  margin-bottom: 4px;
-}
-.roi-bar .roi-left p {
-  font-size: 11.5px;
-  color: #F4D0D9;
-  font-weight: 300;
-}
-.roi-bar .roi-number {
-  font-family: 'Playfair Display', serif;
-  font-size: 42px;
-  font-weight: 900;
-  color: #fff;
-  line-height: 1;
-}
-.roi-bar .roi-number span {
-  font-size: 20px;
-  color: #F4D0D9;
-}
+.spacer-row td { height:8px; border:none; background:transparent; }
 
-/* BREAKDOWN TABLE */
-.breakdown {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 20px;
-}
-.breakdown th {
-  font-size: 11px;
-  font-weight: 600;
-  color: #888;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-  padding: 8px 12px;
-  text-align: left;
-  border-bottom: 1.5px solid #eee;
-}
-.breakdown td {
-  font-size: 12.5px;
-  padding: 11px 12px;
-  border-bottom: 1px solid #f0f0f0;
-  color: #333;
-  vertical-align: top;
-}
-.breakdown td:last-child {
-  text-align: right;
-  font-weight: 600;
-  color: #000;
-}
-.breakdown tr.total td {
-  border-top: 2px solid #000;
-  border-bottom: none;
-  font-weight: 700;
-  color: #000;
-  font-size: 13.5px;
-  padding-top: 14px;
-}
-.breakdown tr.cost td {
-  color: #c0392b;
-}
-.breakdown tr.cost td:last-child {
-  color: #c0392b;
-}
-.cat-label {
-  display: inline-block;
-  font-size: 10px;
-  padding: 2px 7px;
-  border-radius: 20px;
-  margin-left: 6px;
-  font-weight: 500;
-  vertical-align: middle;
-}
-.cat-churn { background: #e8f4fd; color: #2980b9; }
-.cat-spot { background: #eafaf1; color: #27ae60; }
-.cat-service { background: #fef9e7; color: #d4ac0d; }
-.cat-upsell { background: #fdf2f8; color: #8e44ad; }
-.cat-cost { background: #fdecea; color: #c0392b; }
+.print-btn { display:block; margin:0 auto; background:#000; color:#fff; border:none; padding:14px 40px; border-radius:8px; font-family:'Jost',sans-serif; font-size:13px; font-weight:500; cursor:pointer; letter-spacing:.03em; transition:background .2s; }
+.print-btn:hover { background:#5E649C; }
 
-/* PRINT BUTTON */
-.print-btn {
-  display: block;
-  margin: 0 auto;
-  background: #000;
-  color: #fff;
-  border: none;
-  padding: 14px 40px;
-  border-radius: 8px;
-  font-family: 'Jost', sans-serif;
-  font-size: 13px;
-  font-weight: 500;
-  cursor: pointer;
-  letter-spacing: 0.03em;
-  transition: background 0.2s;
-}
-.print-btn:hover { background: #5E649C; }
+.footnote { font-size:11px; color:#333; text-align:center; line-height:1.6; font-weight:400; }
 
-/* FOOTNOTE */
-.footnote {
-  font-size: 11px;
-  color: #aaa;
-  text-align: center;
-  line-height: 1.6;
-  font-weight: 300;
-}
-
-/* PRINT */
 @media print {
-  body { background: #fff; padding: 0; }
-  .print-btn { display: none; }
-  .wrapper { gap: 16px; }
-  .section { box-shadow: none; border: 1px solid #eee; }
+  body { background:#fff; padding:0; }
+  .print-btn { display:none; }
+  .wrapper { gap:16px; }
+  .section { box-shadow:none; border:1px solid #eee; }
 }
 </style>
 </head>
@@ -352,94 +96,67 @@ input[type="range"] {
     Laskin auttaa hahmottamaan hinnankiinnityspalvelun <strong>taloudellisen vaikutuksen</strong> omalle liiketoiminnallenne. Syötä omat lukenne tai käytä valmiita esimerkkiarvoja — laskelma päivittyy automaattisesti. Luvut ovat arvioita ja perustuvat tyypillisiin alan parametreihin.
   </div>
 
-  <!-- LÄHTÖTIEDOT -->
   <div class="section">
     <div class="section-title"><div class="icon">📊</div>Lähtötiedot — oma yhtiönne</div>
     <div class="input-grid">
       <div class="input-group">
         <label>Pörssisähköasiakkaiden määrä</label>
         <div class="hint">Aktiiviset SPOT-sopimukset</div>
-        <div class="input-row">
-          <input type="number" id="spotCustomers" value="5000" min="100" step="100">
-          <span class="unit">kpl</span>
-        </div>
+        <div class="input-row"><input type="number" id="spotCustomers" value="5000" min="100" step="100"><span class="unit">kpl</span></div>
       </div>
       <div class="input-group">
         <label>Keskimääräinen vuosikate / SPOT-asiakas</label>
         <div class="hint">Marginaali + palvelumaksut</div>
-        <div class="input-row">
-          <input type="number" id="revenuePerCustomer" value="80" min="10" step="5">
-          <span class="unit">€/v</span>
-        </div>
+        <div class="input-row"><input type="number" id="revenuePerCustomer" value="80" min="10" step="5"><span class="unit">€/v</span></div>
       </div>
       <div class="input-group">
         <label>Nykyinen vuosittainen churn-% (SPOT)</label>
         <div class="hint">Arvio asiakaspoistumasta</div>
-        <div class="input-row">
-          <input type="number" id="currentChurn" value="12" min="1" max="50" step="1">
-          <span class="unit">%</span>
-        </div>
+        <div class="input-row"><input type="number" id="currentChurn" value="12" min="1" max="50" step="1"><span class="unit">%</span></div>
       </div>
       <div class="input-group">
         <label>Asiakaspalvelun tuntikustannus</label>
         <div class="hint">Sis. työnantajakulut</div>
-        <div class="input-row">
-          <input type="number" id="hourlyRate" value="45" min="20" step="5">
-          <span class="unit">€/h</span>
-        </div>
+        <div class="input-row"><input type="number" id="hourlyRate" value="45" min="20" step="5"><span class="unit">€/h</span></div>
       </div>
     </div>
   </div>
 
-  <!-- HYÖTYPARAMETRIT -->
   <div class="section">
     <div class="section-title"><div class="icon">🎯</div>Hyötyparametrit — säädä omaan tilanteeseen</div>
-    <div style="display:grid; grid-template-columns:1fr 1fr; gap:24px;">
-
-      <div>
-        <div class="slider-group">
-          <label>Churnin väheneminen <span id="churnReductionVal">20</span>%</label>
-          <input type="range" id="churnReduction" min="5" max="50" value="20" step="5">
-          <div style="font-size:11px;color:#aaa;font-weight:300;">Kuinka paljon hinnankiinnitys sitouttaa asiakkaita</div>
-        </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;">
+      <div class="slider-group">
+        <label>Churnin väheneminen <span id="churnReductionVal">20</span>%</label>
+        <input type="range" id="churnReduction" min="5" max="50" value="20" step="5">
+        <div style="font-size:11px;color:#aaa;font-weight:300;">Kuinka paljon hinnankiinnitys sitouttaa asiakkaita</div>
       </div>
-
-      <div>
-        <div class="slider-group">
-          <label>Uudet SPOT-asiakkaat / vuosi <span id="newSPOTVal">150</span> kpl</label>
-          <input type="range" id="newSPOT" min="0" max="500" value="150" step="25">
-          <div style="font-size:11px;color:#aaa;font-weight:300;">Differoidun tuotteen vetovaikutus</div>
-        </div>
+      <div class="slider-group">
+        <label>Uudet SPOT-asiakkaat / vuosi <span id="newSPOTVal">150</span> kpl</label>
+        <input type="range" id="newSPOT" min="0" max="500" value="150" step="25">
+        <div style="font-size:11px;color:#aaa;font-weight:300;">Differoidun tuotteen vetovaikutus</div>
       </div>
-
-      <div>
-        <div class="slider-group">
-          <label>Asiakaspalvelutuntien väheneminen <span id="serviceHoursVal">120</span> h/v</label>
-          <input type="range" id="serviceHours" min="0" max="500" value="120" step="20">
-          <div style="font-size:11px;color:#aaa;font-weight:300;">Vähemmän hintakyselyitä ja tuotevaihtoja</div>
-        </div>
+      <div class="slider-group">
+        <label>Asiakaspalvelutuntien väheneminen <span id="serviceHoursVal">120</span> h/v</label>
+        <input type="range" id="serviceHours" min="0" max="500" value="120" step="20">
+        <div style="font-size:11px;color:#aaa;font-weight:300;">Vähemmän hintakyselyitä ja tuotevaihtoja</div>
       </div>
-
       <div>
-        <div class="slider-group">
+        <div class="slider-group" style="margin-bottom:16px;">
           <label>Hinnankiinnityspalvelun käyttöönotto-% <span id="upsellRateVal">15</span>%</label>
           <input type="range" id="upsellRate" min="5" max="50" value="15" step="5">
           <div style="font-size:11px;color:#aaa;font-weight:300;">Osuus SPOT-asiakkaista ottaa palvelun</div>
         </div>
-        <div style="margin-top:12px;" class="slider-group">
+        <div class="slider-group">
           <label>Lisätuotto / kiinnityspalveluasiakas <span id="upsellRevenueVal">24</span> €/v</label>
           <input type="range" id="upsellRevenue" min="6" max="60" value="24" step="6">
           <div style="font-size:11px;color:#aaa;font-weight:300;">Palvelumaksu tai marginaalikorotus</div>
         </div>
       </div>
-
     </div>
   </div>
 
-  <!-- TULOKSET -->
   <div class="section">
     <div class="section-title"><div class="icon">💶</div>Laskelman tulokset</div>
-
     <div class="results-grid">
       <div class="result-card">
         <div class="r-label">Säilytetyt asiakkaat / v</div>
@@ -465,8 +182,8 @@ input[type="range"] {
 
     <div class="roi-bar">
       <div class="roi-left">
-        <h3>Arvioitu nettohyöty ensimmäisenä vuonna</h3>
-        <p>Kokonaishyödyt vähennettynä investointikustannuksilla</p>
+        <h3>Arvioitu nettohyöty — vuosi 1</h3>
+        <p id="roi-sub">Vuosi 2 ja kumulatiivinen laskettu alla</p>
       </div>
       <div class="roi-number" id="res-roi">—<span>€</span></div>
     </div>
@@ -481,7 +198,6 @@ input[type="range"] {
       </thead>
       <tbody id="breakdownBody"></tbody>
     </table>
-
   </div>
 
   <div class="footnote">
@@ -494,96 +210,79 @@ input[type="range"] {
 </div>
 
 <script>
-const ids = [
-  'spotCustomers','revenuePerCustomer','currentChurn','hourlyRate',
-  'churnReduction','newSPOT','serviceHours','upsellRate','upsellRevenue'
-];
-
-function fmt(n) {
-  if (Math.abs(n) >= 1000) return Math.round(n).toLocaleString('fi-FI') + ' €';
-  return Math.round(n) + ' €';
-}
-function fmtNum(n) {
-  return Math.round(n).toLocaleString('fi-FI');
-}
+function fmtNum(n) { return Math.round(n).toLocaleString('fi-FI'); }
 
 function calc() {
-  const v = {};
-  ids.forEach(id => {
-    const el = document.getElementById(id);
-    v[id] = parseFloat(el.value) || 0;
-  });
+  var spotCustomers     = parseFloat(document.getElementById('spotCustomers').value) || 0;
+  var revenuePerCustomer= parseFloat(document.getElementById('revenuePerCustomer').value) || 0;
+  var currentChurn      = parseFloat(document.getElementById('currentChurn').value) || 0;
+  var hourlyRate        = parseFloat(document.getElementById('hourlyRate').value) || 0;
+  var churnReduction    = parseFloat(document.getElementById('churnReduction').value) || 0;
+  var newSPOT           = parseFloat(document.getElementById('newSPOT').value) || 0;
+  var serviceHours      = parseFloat(document.getElementById('serviceHours').value) || 0;
+  var upsellRate        = parseFloat(document.getElementById('upsellRate').value) || 0;
+  var upsellRevenue     = parseFloat(document.getElementById('upsellRevenue').value) || 0;
 
   // Update slider labels
-  document.getElementById('churnReductionVal').textContent = v.churnReduction;
-  document.getElementById('newSPOTVal').textContent = v.newSPOT;
-  document.getElementById('serviceHoursVal').textContent = v.serviceHours;
-  document.getElementById('upsellRateVal').textContent = v.upsellRate;
-  document.getElementById('upsellRevenueVal').textContent = v.upsellRevenue;
+  document.getElementById('churnReductionVal').textContent = churnReduction;
+  document.getElementById('newSPOTVal').textContent = newSPOT;
+  document.getElementById('serviceHoursVal').textContent = serviceHours;
+  document.getElementById('upsellRateVal').textContent = upsellRate;
+  document.getElementById('upsellRevenueVal').textContent = upsellRevenue;
 
-  // Calculations
-  const churnedNow = v.spotCustomers * (v.currentChurn / 100);
-  const savedCustomers = Math.round(churnedNow * (v.churnReduction / 100));
-  const churnBenefit = savedCustomers * v.revenuePerCustomer;
+  // Benefit calculations
+  var churnedNow      = spotCustomers * (currentChurn / 100);
+  var savedCustomers  = Math.round(churnedNow * (churnReduction / 100));
+  var churnBenefit    = savedCustomers * revenuePerCustomer;
+  var newCustBenefit  = newSPOT * revenuePerCustomer;
+  var serviceSaving   = serviceHours * hourlyRate;
+  var upsellCustomers = Math.round(spotCustomers * (upsellRate / 100));
+  var upsellBenefit   = upsellCustomers * upsellRevenue;
+  var totalBenefit    = churnBenefit + newCustBenefit + serviceSaving + upsellBenefit;
 
-  const newCustomerBenefit = v.newSPOT * v.revenuePerCustomer;
+  // Year 1 vs Year 2
+  var investY1   = 25000;
+  var saasAnnual = 450 * 12;
+  var netY1      = totalBenefit - investY1;
+  var netY2      = totalBenefit - saasAnnual;
+  var cumulative = netY1 + netY2;
 
-  const serviceSaving = v.serviceHours * v.hourlyRate;
-
-  const upsellCustomers = Math.round(v.spotCustomers * (v.upsellRate / 100));
-  const upsellBenefit = upsellCustomers * v.upsellRevenue;
-
-  const totalBenefit = churnBenefit + newCustomerBenefit + serviceSaving + upsellBenefit;
-
-  // Investointikustannus (kiinteä arvio, ei näytetä hintaa suoraan)
-  const investCost = 25000; // käyttöönotto + 1v SaaS
-  const netBenefit = totalBenefit - investCost;
-
-  // Update cards
+  // Update summary cards
   document.getElementById('res-savedCustomers').textContent = fmtNum(savedCustomers) + ' kpl';
-  document.getElementById('res-newCustomers').textContent = fmtNum(v.newSPOT) + ' kpl';
-  document.getElementById('res-serviceSaving').textContent = fmtNum(serviceSaving);
-  document.getElementById('res-upsell').textContent = fmtNum(upsellBenefit);
-  document.getElementById('res-roi').innerHTML = fmtNum(netBenefit) + '<span>€</span>';
+  document.getElementById('res-newCustomers').textContent   = fmtNum(newSPOT) + ' kpl';
+  document.getElementById('res-serviceSaving').textContent  = fmtNum(serviceSaving);
+  document.getElementById('res-upsell').textContent         = fmtNum(upsellBenefit);
+  document.getElementById('res-roi').innerHTML              = fmtNum(netY1) + '<span>€</span>';
+  document.getElementById('roi-sub').textContent            = 'Vuosi 2: +' + fmtNum(netY2) + ' € | Kumulatiivisesti 2v: +' + fmtNum(cumulative) + ' €';
 
   // Breakdown table
-  const rows = [
-    { label: 'Asiakaspoistuman väheneminen', cat: 'churn', catLabel: 'Churn', basis: `${fmtNum(savedCustomers)} asiakasta × ${v.revenuePerCustomer} €/v`, value: churnBenefit },
-    { label: 'Uusien SPOT-asiakkaiden hankinta', cat: 'spot', catLabel: 'Hankinta', basis: `${fmtNum(v.newSPOT)} asiakasta × ${v.revenuePerCustomer} €/v`, value: newCustomerBenefit },
-    { label: 'Asiakaspalvelun työkuorman väheneminen', cat: 'service', catLabel: 'Säästö', basis: `${fmtNum(v.serviceHours)} h × ${v.hourlyRate} €/h`, value: serviceSaving },
-    { label: 'Lisätuotto hinnankiinnityspalvelusta', cat: 'upsell', catLabel: 'Upsell', basis: `${fmtNum(upsellCustomers)} asiakasta × ${v.upsellRevenue} €/v`, value: upsellBenefit },
+  var rows = [
+    { label:'Asiakaspoistuman väheneminen',            cat:'churn',   catLabel:'Churn',    basis: fmtNum(savedCustomers) + ' asiakasta × ' + revenuePerCustomer + ' €/v', value: churnBenefit },
+    { label:'Uusien SPOT-asiakkaiden hankinta',        cat:'spot',    catLabel:'Hankinta', basis: fmtNum(newSPOT) + ' asiakasta × ' + revenuePerCustomer + ' €/v',        value: newCustBenefit },
+    { label:'Asiakaspalvelun työkuorman väheneminen',  cat:'service', catLabel:'Säästö',   basis: fmtNum(serviceHours) + ' h × ' + hourlyRate + ' €/h',                   value: serviceSaving },
+    { label:'Lisätuotto hinnankiinnityspalvelusta',    cat:'upsell',  catLabel:'Upsell',   basis: fmtNum(upsellCustomers) + ' asiakasta × ' + upsellRevenue + ' €/v',      value: upsellBenefit }
   ];
 
-  let html = rows.map(r => `
-    <tr>
-      <td>${r.label} <span class="cat-label cat-${r.cat}">${r.catLabel}</span></td>
-      <td style="color:#888;font-size:11.5px;">${r.basis}</td>
-      <td>+ ${fmtNum(r.value)} €</td>
-    </tr>`).join('');
+  var html = rows.map(function(r) {
+    return '<tr><td>' + r.label + ' <span class="cat-label cat-' + r.cat + '">' + r.catLabel + '</span></td>'
+      + '<td style="color:#888;font-size:11.5px;">' + r.basis + '</td>'
+      + '<td>+ ' + fmtNum(r.value) + ' €</td></tr>';
+  }).join('');
 
-  html += `
-    <tr>
-      <td>Kokonaishyödyt (vuosi 1)</td>
-      <td></td>
-      <td>+ ${fmtNum(totalBenefit)} €</td>
-    </tr>
-    <tr class="cost">
-      <td>Investointikustannus (arvio, sis. käyttöönotto + 1v SaaS) <span class="cat-label cat-cost">Kustannus</span></td>
-      <td style="font-size:11.5px;color:#e88;">Käydään läpi esittelyssä</td>
-      <td>− ${fmtNum(investCost)} €</td>
-    </tr>
-    <tr class="total">
-      <td>Nettohyöty ensimmäisenä vuonna</td>
-      <td></td>
-      <td>${netBenefit >= 0 ? '+' : ''} ${fmtNum(netBenefit)} €</td>
-    </tr>`;
+  html += '<tr class="total"><td>Kokonaishyödyt (vuosi 1)</td><td></td><td>+ ' + fmtNum(totalBenefit) + ' €</td></tr>';
+  html += '<tr class="cost"><td>Investointikustannus vuosi 1 — käyttöönotto + SaaS <span class="cat-label cat-cost">Kustannus</span></td><td style="font-size:11.5px;color:#e88;">Käydään läpi esittelyssä</td><td>− ' + fmtNum(investY1) + ' €</td></tr>';
+  html += '<tr class="total"><td>Nettohyöty — vuosi 1</td><td></td><td>' + (netY1 >= 0 ? '+' : '') + ' ' + fmtNum(netY1) + ' €</td></tr>';
+  html += '<tr class="spacer-row"><td colspan="3"></td></tr>';
+  html += '<tr><td>Kokonaishyödyt (vuosi 2)</td><td style="font-size:11.5px;color:#888;">Samat hyödyt jatkuvat</td><td>+ ' + fmtNum(totalBenefit) + ' €</td></tr>';
+  html += '<tr class="cost"><td>Kustannus vuosi 2 — vain jatkuva SaaS <span class="cat-label cat-cost">Kustannus</span></td><td style="font-size:11.5px;color:#e88;">Käyttöönottokustannus poistuu</td><td>− ' + fmtNum(saasAnnual) + ' €</td></tr>';
+  html += '<tr class="total"><td>Nettohyöty — vuosi 2</td><td></td><td>' + (netY2 >= 0 ? '+' : '') + ' ' + fmtNum(netY2) + ' €</td></tr>';
+  html += '<tr class="cumulative"><td style="font-weight:700;font-size:13.5px;">Kumulatiivinen nettohyöty 2 vuotta</td><td style="font-size:11.5px;color:#888;">Vuosi 1 + Vuosi 2</td><td>' + (cumulative >= 0 ? '+' : '') + ' ' + fmtNum(cumulative) + ' €</td></tr>';
 
   document.getElementById('breakdownBody').innerHTML = html;
 }
 
-// Attach all listeners
-ids.forEach(id => {
-  document.getElementById(id).addEventListener('input', calc);
+document.querySelectorAll('input').forEach(function(el) {
+  el.addEventListener('input', calc);
 });
 
 calc();
