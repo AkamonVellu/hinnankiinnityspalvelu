@@ -202,7 +202,7 @@ input[type="range"] { width:100%; accent-color:#5E649C; height:4px; cursor:point
 
   <div class="footnote">
     Laskelma on suuntaa-antava arvio. Todelliset luvut riippuvat yhtiönne asiakasrakenteesta, markkinatilanteesta ja käyttöönoton laajuudesta.<br>
-    Luvut eivät sisällä Akamon-investoinnin tarkkaa hinnoittelua — se käydään läpi yhteisessä esittelyssä.
+    * Investointikustannukset ovat arvioita ja tarkennetaan aina tapauskohtaisesti. Lopulliseen hintaan vaikuttavat mm. onko kyseessä uusi vai nykyinen Akamon-asiakas, Dataplatform-asiakkuuden laajuus, tarvittavat integraatiot sekä asiakkaiden kokonaismäärä.
   </div>
 
   <button class="print-btn" onclick="window.print()">🖨️ Tulosta / Tallenna PDF</button>
@@ -242,7 +242,7 @@ function calc() {
 
   // Year 1 vs Year 2
   var investY1   = 25000;
-  var saasAnnual = 450 * 12;
+  var saasAnnual = 8000;
   var netY1      = totalBenefit - investY1;
   var netY2      = totalBenefit - saasAnnual;
   var cumulative = netY1 + netY2;
@@ -270,11 +270,11 @@ function calc() {
   }).join('');
 
   html += '<tr class="total"><td>Kokonaishyödyt (vuosi 1)</td><td></td><td>+ ' + fmtNum(totalBenefit) + ' €</td></tr>';
-  html += '<tr class="cost"><td>Investointikustannus vuosi 1 — käyttöönotto + SaaS <span class="cat-label cat-cost">Kustannus</span></td><td style="font-size:11.5px;color:#e88;">Käydään läpi esittelyssä</td><td>− ' + fmtNum(investY1) + ' €</td></tr>';
+  html += '<tr class="cost"><td>Investointikustannus vuosi 1 — käyttöönotto + SaaS <span class="cat-label cat-cost">Kustannus</span></td><td style="font-size:11px;color:#e88;">Arvio — vaihtelee asiakkuuden mukaan*</td><td>− ' + fmtNum(investY1) + ' €</td></tr>';
   html += '<tr class="total"><td>Nettohyöty — vuosi 1</td><td></td><td>' + (netY1 >= 0 ? '+' : '') + ' ' + fmtNum(netY1) + ' €</td></tr>';
   html += '<tr class="spacer-row"><td colspan="3"></td></tr>';
   html += '<tr><td>Kokonaishyödyt (vuosi 2)</td><td style="font-size:11.5px;color:#888;">Samat hyödyt jatkuvat</td><td>+ ' + fmtNum(totalBenefit) + ' €</td></tr>';
-  html += '<tr class="cost"><td>Kustannus vuosi 2 — vain jatkuva SaaS <span class="cat-label cat-cost">Kustannus</span></td><td style="font-size:11.5px;color:#e88;">Käyttöönottokustannus poistuu</td><td>− ' + fmtNum(saasAnnual) + ' €</td></tr>';
+  html += '<tr class="cost"><td>Kustannus vuosi 2 — jatkuva SaaS <span class="cat-label cat-cost">Kustannus</span></td><td style="font-size:11px;color:#e88;">Arvio — vaihtelee asiakkuuden mukaan*</td><td>− ' + fmtNum(saasAnnual) + ' €</td></tr>';
   html += '<tr class="total"><td>Nettohyöty — vuosi 2</td><td></td><td>' + (netY2 >= 0 ? '+' : '') + ' ' + fmtNum(netY2) + ' €</td></tr>';
   html += '<tr class="cumulative"><td style="font-weight:700;font-size:13.5px;">Kumulatiivinen nettohyöty 2 vuotta</td><td style="font-size:11.5px;color:#888;">Vuosi 1 + Vuosi 2</td><td>' + (cumulative >= 0 ? '+' : '') + ' ' + fmtNum(cumulative) + ' €</td></tr>';
 
